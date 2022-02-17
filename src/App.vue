@@ -1,5 +1,5 @@
 <template>
-  <div id="app">hello Vue.js</div>
+  <div id="app">hello Vue.JS</div>
 </template>
 
 <script>
