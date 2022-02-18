@@ -59,15 +59,9 @@
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
             <div class="best__wrapper">
-              <best-item-component
-                name="Solimo Coffee Beans 2kg"
-                price="10.73$"
-              />
-              <best-item-component
-                name="Presto Coffee Beans 1kg"
-                price="15.99$"
-              />
-              <best-item-component name="AROMISTICO Coffee 1kg" price="6.99$" />
+              <product-cart name="Solimo Coffee Beans 2kg" price="10.73$" />
+              <product-cart name="Presto Coffee Beans 1kg" price="15.99$" />
+              <product-cart name="AROMISTICO Coffee 1kg" price="6.99$" />
             </div>
           </div>
         </div>
@@ -78,12 +72,12 @@
 
 <script>
 import NavBarComponent from "@/components/NavBarComponent.vue";
-import BestItemComponent from "@/components/BestItemComponent.vue";
+import ProductCart from "@/components/ProductCart.vue";
 
 export default {
   components: {
     NavBarComponent,
-    BestItemComponent,
+    ProductCart,
   },
 };
 </script>
