@@ -98,7 +98,7 @@ export default {
         {
           id: 0,
           img: "coffee-1.jpg",
-          name: "Solimo Coffee Beans 2kg",
+          name: "Solimo Coffee Beans  2kg",
           price: "10.73$",
         },
         {
