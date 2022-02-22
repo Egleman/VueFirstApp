@@ -7,7 +7,7 @@
             <nav-bar-component />
           </div>
         </div>
-        <h1 class="title-big">Our Coffee</h1>
+        <title-big title="Our Coffee" />
       </div>
     </div>
     <section class="shop">
@@ -69,12 +69,42 @@
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
             <div class="shop__wrapper">
-              <product-cart name="Solimo Coffee Beans 2kg" price="10.73$" />
-              <product-cart name="Presto Coffee Beans 1kg" price="15.99$" />
-              <product-cart name="AROMISTICO Coffee 1kg" price="6.99$" />
-              <product-cart name="Solimo Coffee Beans 2kg" price="10.73$" />
-              <product-cart name="Presto Coffee Beans 1kg" price="15.99$" />
-              <product-cart name="AROMISTICO Coffee 1kg" price="6.99$" />
+              <product-cart
+                classItem="shop__item"
+                :name="coffee[0].name"
+                :price="coffee[0].price"
+                :img="coffee[0].img"
+              />
+              <product-cart
+                classItem="shop__item"
+                :name="coffee[1].name"
+                :price="coffee[1].price"
+                :img="coffee[1].img"
+              />
+              <product-cart
+                classItem="shop__item"
+                :name="coffee[2].name"
+                :price="coffee[2].price"
+                :img="coffee[2].img"
+              />
+              <product-cart
+                classItem="shop__item"
+                :name="coffee[0].name"
+                :price="coffee[0].price"
+                :img="coffee[0].img"
+              />
+              <product-cart
+                classItem="shop__item"
+                :name="coffee[1].name"
+                :price="coffee[1].price"
+                :img="coffee[1].img"
+              />
+              <product-cart
+                classItem="shop__item"
+                :name="coffee[2].name"
+                :price="coffee[2].price"
+                :img="coffee[2].img"
+              />
             </div>
           </div>
         </div>
@@ -86,50 +116,52 @@
 <script>
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import ProductCart from "@/components/ProductCart.vue";
+import TitleBig from "@/components/TitleBig.vue";
 
 export default {
   components: {
     NavBarComponent,
     ProductCart,
+    TitleBig,
   },
   data() {
     return {
-      arr: [
+      coffee: [
         {
           id: 0,
           img: "coffee-1.jpg",
-          name: "Solimo Coffee Beans  2kg",
-          price: "10.73$",
+          name: "Solimo Coffee Beans 2kg",
+          price: 10.73,
         },
         {
           id: 1,
-          img: "coffee-1.jpg",
+          img: "coffee-2.jpg",
           name: "Presto Coffee Beans 1kg",
-          price: "15.99$",
+          price: 15.99,
         },
         {
           id: 2,
-          img: "coffee-1.jpg",
+          img: "coffee-3.jpg",
           name: "AROMISTICO Coffee 1kg",
-          price: "6.99$",
+          price: 6.99,
         },
         {
           id: 3,
           img: "coffee-1.jpg",
-          name: "Presto Coffee Beans 1kg",
-          price: "15.99$",
+          name: "Solimo Coffee Beans 2kg",
+          price: 10.73,
         },
         {
           id: 4,
-          img: "coffee-1.jpg",
-          name: "Solimo Coffee Beans 2kg",
-          price: "10.73$",
+          img: "coffee-2.jpg",
+          name: "Presto Coffee Beans 1kg",
+          price: 15.99,
         },
         {
           id: 5,
-          img: "coffee-1.jpg",
+          img: "coffee-3.jpg",
           name: "AROMISTICO Coffee 1kg",
-          price: "6.99$",
+          price: 6.99,
         },
       ],
     };
