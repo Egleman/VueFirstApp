@@ -49,40 +49,12 @@
           <div class="col-lg-10 offset-lg-1">
             <div class="shop__wrapper">
               <product-cart
+                v-for="coffees in coffee"
+                :key="coffees.id"
                 classItem="shop__item"
-                :name="coffee[0].name"
-                :price="coffee[0].price"
-                :img="coffee[0].img"
-              />
-              <product-cart
-                classItem="shop__item"
-                :name="coffee[1].name"
-                :price="coffee[1].price"
-                :img="coffee[1].img"
-              />
-              <product-cart
-                classItem="shop__item"
-                :name="coffee[2].name"
-                :price="coffee[2].price"
-                :img="coffee[2].img"
-              />
-              <product-cart
-                classItem="shop__item"
-                :name="coffee[0].name"
-                :price="coffee[0].price"
-                :img="coffee[0].img"
-              />
-              <product-cart
-                classItem="shop__item"
-                :name="coffee[1].name"
-                :price="coffee[1].price"
-                :img="coffee[1].img"
-              />
-              <product-cart
-                classItem="shop__item"
-                :name="coffee[2].name"
-                :price="coffee[2].price"
-                :img="coffee[2].img"
+                :name="coffees.name"
+                :price="coffees.price"
+                :img="coffees.img"
               />
             </div>
           </div>
