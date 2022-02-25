@@ -5,12 +5,12 @@
         <div class="col-lg-6 offset-lg-3">
           <ul class="footer d-flex flex-wrap">
             <link-menu-component
-              :link="links.header.link"
+              :link="links.footer.link"
               classItem="footer__item"
             >
               <img
-                :src="require(`@/assets/logo/${links.header.icon}`)"
-                :alt="links.header.icon"
+                :src="require(`@/assets/logo/${links.footer.icon}`)"
+                :alt="links.footer.icon"
               />
             </link-menu-component>
             <link-menu-component
@@ -38,33 +38,10 @@ export default {
   components: {
     LinkMenuComponent,
   },
-  data() {
-    return {
-      links: {
-        header: {
-          id: 0,
-          link: "/",
-          icon: "Logo_black.svg",
-        },
-        other: [
-          {
-            id: 1,
-            text: "Our coffee",
-            link: "/our-coffee",
-          },
-          {
-            id: 2,
-            text: "For your pleasure",
-            link: "/goods-page",
-          },
-          {
-            id: 3,
-            text: "Contact us",
-            link: "/contact-us",
-          },
-        ],
-      },
-    };
+  computed: {
+    links() {
+      return this.$store.getters["getFooterLinks"];
+    },
   },
 };
 </script>
