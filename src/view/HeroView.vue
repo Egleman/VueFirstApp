@@ -68,9 +68,7 @@
                 v-for="coffees in coffee"
                 :key="coffees.id"
                 classItem="best__item"
-                :name="coffees.name"
-                :price="coffees.price"
-                :img="coffees.img"
+                :card="coffees"
               />
             </div>
           </div>

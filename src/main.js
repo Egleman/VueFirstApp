@@ -6,7 +6,10 @@ import store from './store';
 
 import './assets/scss/style.scss';
 
+import './filters/index'
+
 Vue.config.productionTip = false
+
 
 
 
