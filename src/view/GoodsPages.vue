@@ -75,9 +75,16 @@ export default {
     ProductCart,
     TitleBig,
   },
+  mounted() {
+    fetch('http://localhost:3000/goods')
+    .then(res => res.json())
+    .then(data => {
+      this.$store.dispatch("setGoodsData", data)
+    })
+  },
   computed: {
     coffee() {
-      return this.$store.getters["getCoffee"];
+      return this.$store.getters["getGoods"];
     },
   },
   data() {

@@ -65,7 +65,7 @@
           <div class="col-lg-10 offset-lg-1">
             <div class="best__wrapper">
               <product-cart
-                v-for="coffees in coffee"
+                v-for="coffees in bestsellers"
                 :key="coffees.id"
                 classItem="best__item"
                 :card="coffees"
@@ -93,11 +93,17 @@ export default {
     NavBarComponent,
   },
   computed: {
-    coffee() {
-      return this.$store.getters["getCoffee"].filter((coff) => {
-        return coff.id < 3;
-      });
+    bestsellers() {
+      return this.$store.getters["getBestsellers"]
     },
+  },
+  mounted() {
+    fetch('http://localhost:3000/bestsellers')
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      this.$store.dispatch("setBestsellersData", data)
+    })
   },
   methods: {
     smoothScroll() {
