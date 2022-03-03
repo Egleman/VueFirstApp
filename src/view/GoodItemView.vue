@@ -48,21 +48,12 @@ export default {
     NavBarComponent,
     TitleBig,
   },
-  data() {
-    return {
-        product: null
-    }
-  },
   mounted() {
     fetch(`http://localhost:3000/${this.pageName}/${this.$route.params.id}`)
     .then(res => res.json())
     .then(data => {
-        this.product = data
-        //this.$store.dispatch("setGoodsItemData", data)
+        this.$store.dispatch("setGoodsItemData", data)
     })
-  },
-  destroyed() {
-      this.product = null
   },
   computed: {
       pageName() {
@@ -70,6 +61,9 @@ export default {
       },
       card() {
           return this.$store.getters["getProductById"](this.$route.params.id)
+      },
+      product() {
+          return this.$store.getters["getGoodsItemData"]
       }
   }
 };

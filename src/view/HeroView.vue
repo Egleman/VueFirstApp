@@ -64,7 +64,10 @@
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
             <div class="best__wrapper">
-              <product-cart
+              <div v-if="isLoading" style="display: flex; justify-content: space-between; width: 100%;">
+                <spinner v-for="n in 3" :key="n" />
+              </div>
+              <product-cart v-else
                 v-for="coffees in bestsellers"
                 :key="coffees.id"
                 classItem="best__item"
@@ -84,6 +87,7 @@ import ProductCart from "@/components/ProductCart.vue";
 import TitleBig from "@/components/TitleBig.vue";
 import LinkMenuComponent from "@/components/LinkMenuComponent.vue";
 import { scrollIntoView } from "seamless-scroll-polyfill";
+import Spinner from '@/components/Spinner.vue';
 
 export default {
   components: {
@@ -91,19 +95,28 @@ export default {
     TitleBig,
     LinkMenuComponent,
     NavBarComponent,
+    Spinner
   },
   computed: {
     bestsellers() {
       return this.$store.getters["getBestsellers"]
     },
+    isLoading() {
+      return this.$store.getters["getIsLoading"];
+    }
   },
   mounted() {
-    fetch('http://localhost:3000/bestsellers')
-    .then(res => res.json())
-    .then(data => {
+    this.$store.dispatch("setIsLoading", true)
+    setTimeout(() => {
+      fetch('http://localhost:3000/bestsellers')
+      .then(res => res.json())
+      .then(data => {
       console.log(data)
       this.$store.dispatch("setBestsellersData", data)
+      this.$store.dispatch("setIsLoading", false)
     })
+    }, 500)
+    
   },
   methods: {
     smoothScroll() {

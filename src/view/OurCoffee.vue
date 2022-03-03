@@ -69,7 +69,9 @@
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
             <div class="shop__wrapper">
+              <spinner v-if="isLoading" />
               <product-cart
+                v-else
                 v-for="coffees in coffee"
                 :key="coffees.id"
                 classItem="shop__item"
@@ -89,17 +91,22 @@ import NavBarComponent from "@/components/NavBarComponent.vue";
 import ProductCart from "@/components/ProductCart.vue";
 import TitleBig from "@/components/TitleBig.vue";
 import {navigate} from "@/mixins/navigate";
+import Spinner from "@/components/Spinner.vue";
 
 export default {
   components: {
     NavBarComponent,
     ProductCart,
     TitleBig,
+    Spinner
   },
   computed: {
     coffee() {
       return this.$store.getters["getCoffee"];
     },
+    isLoading() {
+      return this.$store.getters["getIsLoading"];
+    }
   },
   data() {
     return {
@@ -108,11 +115,16 @@ export default {
   },
   mixins: [navigate],
   mounted() {
-    fetch('http://localhost:3000/coffee')
-    .then(res => res.json())
-    .then(data => {
+    this.$store.dispatch("setIsLoading", true)
+    setTimeout(() => {
+      fetch('http://localhost:3000/coffee')
+      .then(res => res.json())
+      .then(data => {
       this.$store.dispatch("setCoffeeData", data)
+      this.$store.dispatch("setIsLoading", false)
     })
+    }, 500)
+    
   }
 };
 </script>

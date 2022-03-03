@@ -186,7 +186,7 @@ export default {
       this.email = '';
       this.phone = '';
       this.message = '';
-      this.$v.$reset();
+      this.v$.$reset();
     },
   },
 };

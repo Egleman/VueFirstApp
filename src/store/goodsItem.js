@@ -1,6 +1,6 @@
 const goodsItem = {
     state: {
-        goodsItem: []
+        goodsItem: null
     },
     actions: {
         setGoodsItemData({commit}, data) {
@@ -13,14 +13,9 @@ const goodsItem = {
         }
     },
     getters: {
-        getGoodsItem(state) {
+        getGoodsItemData(state) {
             return state.goodsItem
         },
-        getGoodsItemById(state) {
-            return (id) => {
-                return state.goodsItem.find((card) => card.id === +id);
-            }
-        }
     }
 }
 
